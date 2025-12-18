@@ -1,0 +1,104 @@
+
+Library Manager
+
+A web-based personal library management system that allows users to catalog books, store their physical locations, and manage their collection through a clean and intuitive interface. The application supports both manual book entry and image-based metadata extraction with ISBN lookup via Google Books API.
+
+Live Demo:  
+https://library-manager-production-c8f4.up.railway.app
+
+Features
+
+- Add books with title, author, genre, and physical location
+- Mandatory location tracking (shelf, room, etc.)
+- Search books by title
+- Sort library alphabetically by title
+- Remove books from the collection
+- Upload book images for metadata extraction
+- ISBN detection using Google Books API
+- Clean, minimal, user-friendly UI
+- Deployed on Railway (cloud hosted)
+
+🛠️ Tech Stack
+Frontend
+- HTML5
+- CSS3
+- Jinja2 (Flask templates)
+
+Backend
+- Python
+- Flask
+
+Database
+- SQLite
+
+APIs & Libraries
+- Google Books API
+- pytesseract (OCR fallback)
+- Requests
+
+Deployment
+- Railway (Free Tier)
+- GitHub (CI/CD integration)
+
+How It Works
+
+1. User adds a book manually or uploads an image of the book.
+2. If an image is uploaded:
+   - ISBN is detected from extracted text
+   - Book metadata is fetched using Google Books API
+3. User confirms details and provides the book’s physical location.
+4. Book is stored in the database and displayed in the library view.
+5. Users can search, sort, or remove books at any time.
+
+Run Locally
+
+Clone the repository:
+git clone https://github.com/YOUR_USERNAME/library-manager.git
+cd library-manager
+
+
+Create and activate virtual environment:
+python -m venv venv
+venv\Scripts\activate
+
+Install dependencies:
+pip install -r requirements.txt
+
+Run the app:
+python app.py
+
+Open in browser:
+http://localhost:8080
+
+Deployment
+
+The application is deployed on **Railway** with automatic redeployments on every GitHub push.
+
+* Uses dynamic port binding via `PORT` environment variable
+* Runs continuously on Railway servers
+* Free tier may sleep during inactivity (expected behavior)
+
+Limitations
+
+* SQLite database may reset on full redeploys (free-tier limitation)
+* OCR accuracy depends on image quality
+* Advanced OpenCV-based OCR not used for cloud compatibility
+
+Future Improvements
+
+* Persistent PostgreSQL database
+* User authentication
+* Book cover previews
+* Cloud-based OCR (Google Vision / AWS Textract)
+* Mobile-friendly PWA support
+* Export library as CSV or PDF
+
+Made by
+Bhavaditya Lellapalli
+Computer Science Undergraduate
+
+GitHub: https://github.com/bhavaditya007
+LinkedIn: https://www.linkedin.com/in/bhavadityalellapalli/
+
+License
+This project is licensed under the MIT License
